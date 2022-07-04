@@ -9,7 +9,7 @@ export const reduceCount = async (
   oldRedirectUrl: RedirectUrl
 ) => {
   try {
-    if (oldRedirectUrl.visitorsAllowed === 1) {
+    if (oldRedirectUrl.visitorsAllowed <= 1) {
       await prisma.redirectUrl.delete({ where: { urlId: urlId } });
       return;
     }
@@ -45,7 +45,7 @@ export const loader: LoaderFunction = async ({ params }) => {
 
   const redirectUrl = dbResponse.redirectUrl;
 
-  if (dbResponse.visitorsAllowed <= 0) {
+  if (dbResponse.visitorsAllowed <= 1) {
     return null;
   } else {
     reduceCount(urlId, dbResponse);
