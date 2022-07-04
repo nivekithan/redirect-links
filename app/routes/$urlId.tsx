@@ -1,6 +1,6 @@
 import type { RedirectUrl } from "@prisma/client";
 import type { LoaderFunction } from "@remix-run/node";
-import {  redirect } from "@remix-run/node";
+import { redirect } from "@remix-run/node";
 import { prisma } from "~/server/prisma.server";
 
 export const reduceCount = async (
