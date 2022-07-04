@@ -45,7 +45,7 @@ export const loader: LoaderFunction = async ({ params }) => {
   }
 
   const redirectUrl = dbResponse.redirectUrl;
-  reduceCount(urlId, dbResponse);
+  await reduceCount(urlId, dbResponse);
   return redirect(redirectUrl);
 };
 
