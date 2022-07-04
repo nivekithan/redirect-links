@@ -15,13 +15,5 @@ model RedirectUrl {
   redirectUrl String
   urlId String @unique
   visitorsAllowed Int 
-  visitorsVisited Int @default(0)
-}
-
-
-model Vistors {
-  id Int @id @default(autoincrement())
-  urlId String
-  uniqueIdentifier String
 }
 
